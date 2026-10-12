@@ -1,0 +1,20 @@
+[Unit]
+Description=Qwen 4B llamafile API (key auth)
+After=network.target docker.service
+Requires=docker.service
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/talentscope/python-ai/qwen
+ExecStart=/opt/talentscope/python-ai/qwen/start.sh
+Environment=HOST=172.17.0.1
+Environment=PORT=8080
+Environment=CTX=2048
+Environment=THREADS=2
+Restart=always
+RestartSec=3
+OOMScoreAdjust=-200
+LimitNOFILE=4096
+
+[Install]
+WantedBy=multi-user.target

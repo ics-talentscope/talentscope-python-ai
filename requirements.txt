@@ -1,0 +1,11 @@
+# Install torch first (small CPU wheels):
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+#   pip install -r requirements.txt
+fastapi==0.115.12
+uvicorn[standard]==0.34.2
+pydantic==2.11.3
+python-dotenv>=1.0
+numpy==1.26.4
+Pillow==10.2.0
+opencv-python-headless==4.10.0.84
+facenet-pytorch==2.6.0

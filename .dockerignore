@@ -1,0 +1,9 @@
+.git
+__pycache__
+.pytest_cache
+.venv
+venv
+.env*
+qwen/*.gguf
+qwen/*.exe
+qwen/*.llm-api-key

@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: talentscope-face-match
+    runtime: docker
+    plan: standard
+    dockerfilePath: ./faceproj/Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    disk:
+      name: talentscope-face-cache
+      mountPath: /root/.cache
+      sizeGB: 2
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: FACE_MATCH_API_KEY
+        sync: false
+      - key: FACE_MATCH_CORS_ORIGINS
+        value: "*"
