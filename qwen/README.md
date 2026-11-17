@@ -12,10 +12,11 @@ Put these two files in this folder (they are not in git):
 Run from this folder (PowerShell):
 
 ```
-.\llamafile-0.10.5.exe -m ".\Qwen3.5-4B-Q4_K_M.gguf" --server
+.\llamafile-0.10.5.exe -m ".\Qwen3.5-4B-Q4_K_M.gguf" --server --gpu auto
 ```
 
-It listens on http://127.0.0.1:8080 which matches `LOCAL_LLM_URL` in `.env.local`.
+`--gpu auto` uses a supported GPU when available and falls back to CPU otherwise. It listens
+on http://127.0.0.1:8080 which matches `LOCAL_LLM_URL` in `.env.local`.
 `LOCAL_LLM_MODEL` must stay `Qwen3.5-4B-Q4_K_M`.
 
 `LOCAL_LLM_API_KEY` is sent as a Bearer header. The command above starts the server without

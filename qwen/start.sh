@@ -26,7 +26,7 @@ exec "./$BIN" \
   --ctx-size "$CTX" \
   --threads "$THREADS" \
   --parallel 1 \
-  --gpu disable \
+  --gpu auto \
   --reasoning off \
   --reasoning-budget 0 \
   --chat-template-kwargs '{"enable_thinking":false}' \

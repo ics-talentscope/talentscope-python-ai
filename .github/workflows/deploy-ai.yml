@@ -1,0 +1,22 @@
+name: AI - Deploy to Azure VM
+
+on:
+  push:
+    branches: [main, develop]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Deploy AI on ICSBETINTAPP01
+    runs-on: [self-hosted, linux, icsbetintapp01]
+    timeout-minutes: 30
+    concurrency:
+      group: talentscope-ai-deploy
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sync AI services and restart
+        run: bash .github/scripts/deploy-ai.sh
